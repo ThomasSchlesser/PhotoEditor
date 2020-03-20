@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor Thomas SCHLESSER</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- Back to top -->
+        <button onclick="topFunction()" id="btn-top" class="btn">Top</button>
+
+        <!-- Titre -->
+        <div class="title">
+            <h2>Fotoeditor von Thomas SCHLESSER</h2>
+            <div class="subtitle">
+                <p>Edit your picture<br/>
+                Create your future<br/></p>
+            </div>
+        </div>
+
+        <!-- Image -->
+        <div class="image">
+            <canvas id="canvas"></canvas>
+        </div>
+          
+        <!-- Menu -->
+        <nav class="menu">
+  
+            <input type="radio" name="slideItem" id="slide-item-0" class="item-toggle" value="home" checked/>
+            <label for="slide-item-0"><p class="icon">Ω</p><span>Home</span></label>
+            
+            <input type="radio" name="slideItem" id="slide-item-1" class="item-toggle" value="filter"/>
+            <label for="slide-item-1"><p class="icon">★</p><span>Filter</span></label>
+            
+            <input type="radio" name="slideItem" id="slide-item-2" class="item-toggle" value="basic"/>
+            <label for="slide-item-2"><p class="icon">✎</p><span>Leicht</span></label>
+            
+            <input type="radio" name="slideItem" id="slide-item-3" class="item-toggle" value="expert"/>
+            <label for="slide-item-3"><p class="icon">♕</p><span>Experte</span></label>
+            
+            <input type="radio" name="slideItem" id="slide-item-4" class="item-toggle" value="credit"/>
+            <label for="slide-item-4"><p class="icon">©</p><span>Autor</span></label>
+
+            <div class="clear"></div>
+            
+            <div class="menubar">
+              <div class="bar"></div>
+            </div>
+            
+        </nav>
+  
+        <!-- Boxes Section -->
+
+        <div class="filter rad">
+            <div class="box sb">
+                <h3>Schwarz-weiß</h3>
+                <button class="btn filter-btn greyscale">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Vintage</h3>
+                <button class="btn filter-btn vintage">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Lomo</h3>
+                <button class="btn filter-btn lomo">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Clarity</h3>
+                <button class="btn filter-btn clarity">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>SinCity</h3>
+                <button class="btn filter-btn sincity">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Sunrise</h3>
+                <button class="btn filter-btn sunrise">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>CrossProcess</h3>
+                <button class="btn filter-btn crossprocess">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>OrangePeel</h3>
+                <button class="btn filter-btn orangepeel">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Love</h3>
+                <button class="btn filter-btn love">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Grungy</h3>
+                <button class="btn filter-btn grungy">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Jarques</h3>
+                <button class="btn filter-btn jarques">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Pinhole</h3>
+                <button class="btn filter-btn pinhole">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>OldBoot</h3>
+                <button class="btn filter-btn oldboot">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>GlowingSun</h3>
+                <button class="btn filter-btn glowingsun">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>HazyDays</h3>
+                <button class="btn filter-btn hazydays">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>HerMajesty</h3>
+                <button class="btn filter-btn hermajesty">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Nostalgia</h3>
+                <button class="btn filter-btn nostalgia">Filter benutzen</button>
+            </div>
+            <div class="box sb">
+                <h3>Hemingway</h3>
+                <button class="btn filter-btn hemingway">Filter benutzen</button>
+            </div>
+          </div>
+        </section>
+
+
+
+        <section class="boxes">
+          <div class="basic rad">
+            <div class="box mb">
+                <h3>Helligkeit</h3>
+                <button class="btn filter-btn brightness">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" class="sliderbox" id="brightness_s">
+                    <p>Helligkeit: <span id="brightness_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Kontrast</h3>
+                <button class="btn filter-btn contrast">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" class="sliderbox" id="contrast_s">
+                    <p>Kontrast: <span id="contrast_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Belichtung</h3>
+                <button class="btn filter-btn exposure">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" class="sliderbox" id="exposure_s">
+                    <p>Belichtung: <span id="exposure_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Sättigung</h3>
+                <button class="btn filter-btn saturation">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" class="sliderbox" id="saturation_s">
+                    <p>Sättigung: <span id="saturation_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Vibrance</h3>
+                <button class="btn filter-btn vibrance">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" class="sliderbox" id="vibrance_s">
+                    <p>Vibrance: <span id="vibrance_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Clip</h3>
+                <button class="btn filter-btn clip">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" class="sliderbox" id="clip_s">
+                    <p>Clip: <span id="clip_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Gamma</h3>
+                <button class="btn filter-btn gamma">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="5" value="1" step="0.1" class="sliderbox" id="gamma_s">
+                    <p>Gamma: <span id="gamma_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Farbe</h3>
+                <button class="btn filter-btn hue">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="hue_s">
+                    <p>Farbe: <span id="hue_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Geräusch</h3>
+                <button class="btn filter-btn noise">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="noise_s">
+                    <p>Geräusch: <span id="noise_v"></span></p>
+                </div>
+            </div>
+            <div class="box mb">
+                <h3>Sepia</h3>
+                <button class="btn filter-btn sepia">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="sepia_s">
+                    <p>Sepia: <span id="sepia_v"></span></p>
+                </div>
+            </div>
+          </div>
+
+
+
+          <div class="expert rad">
+            <div class="box bigbox">
+                <h3>Kanal</h3>
+                <button class="btn filter-btn channels">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" step="1" class="sliderbox" id="chanr_s">
+                    <p>Rot: <span id="chanr_v"></span></p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" step="1" class="sliderbox" id="chang_s">
+                    <p>Grün: <span id="chang_v"></span></p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="-100" max="100" value="0" step="1" class="sliderbox" id="chanb_s">
+                    <p>Blau: <span id="chanb_v"></span></p>
+                </div>
+            </div>
+            <div class="box bigbox">
+                <h3>Kolorierung</h3>
+                <button class="btn filter-btn colorize">Filter benutzen</button>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="colorr_s">
+                    <p>Rot: <span id="colorr_v"></span></p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="colorg_s">
+                    <p>Grün: <span id="colorg_v"></span></p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="colorb_s">
+                    <p>Blau: <span id="colorb_v"></span></p>
+                </div>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="0" step="1" class="sliderbox" id="strenght_s">
+                    <p>Kraft: <span id="strenght_v"></span></p>
+                </div>
+            </div>
+          </div>
+
+
+
+        <div class="credit rad">
+            <div class="cred box">
+                <p>Thomas SCHLESSER</p>
+                <img src="../picture/Thomas.png">
+            </div>
+        </div>
+
+        <!-- Bottom Boxes-->
+        <section class="bottom-boxes">
+          <div class="box btmb">
+            <h3>Veröffentlichen</h3>
+            <p>Laden Sie Ihr eigenes Bild hoch und bearbeiten Sie es mit den verschiedenen Filtern</p>
+            <input type="file" style="display: none" id="upload-file">
+            <label for="upload-file" class="btn">Veröffentlichen</label>
+          </div>
+          <div class="box btmb">
+            <h3>Speichern</h3>
+            <p>Jetzt können Sie Ihr bearbeitetes Bild auf Ihren Computer herunterladen, um es zu verwenden!</p>
+            <button class="btn" id="download-btn">Speichern</button>
+          </div>
+          <div class="box btmb">
+            <h3>Initialieren Filter</h3>
+            <p>Entfernen Sie einfach alle Filter und versuchen Sie es noch einmal!</p>
+            <button class="btn" id="revert-btn">Initialieren Filter</button>
+          </div>
+        </section>
+        
+        <!-- Filter Preview -->
+        <div class="bigimg">
+            <!-- Slider -->
+            <div class="pad">
+            <div class="sliderimage">
+                <div class="slides">
+                    <div class="slide"><img src="../picture/Brightness.jpg"/></div>
+                    <div class="slide"><img src="../picture/Channels.png"/></div>
+                    <div class="slide"><img src="../picture/Clarity.png"/></div>
+                    <div class="slide"><img src="../picture/Clip.png"/></div>
+                    <div class="slide"><img src="../picture/Colorize.png"/></div>
+                    <div class="slide"><img src="../picture/contrast.jpg"/></div>
+                    <div class="slide"><img src="../picture/CrossProcess.png"/></div>
+                    <div class="slide"><img src="../picture/Exposure.png"/></div>
+                    <div class="slide"><img src="../picture/Gamma.png"/></div>
+                    <div class="slide"><img src="../picture/GlowingSun.png"/></div>
+                    <div class="slide"><img src="../picture/Greyscale.png"/></div>
+                    <div class="slide"><img src="../picture/Grungy.png"/></div>
+                    <div class="slide"><img src="../picture/HazyDays.png"/></div>
+                    <div class="slide"><img src="../picture/HemingWay.png"/></div>
+                    <div class="slide"><img src="../picture/HerMajesty.png"/></div>
+                    <div class="slide"><img src="../picture/Hue.png"/></div>
+                    <div class="slide"><img src="../picture/Jarques.png"/></div>
+                    <div class="slide"><img src="../picture/Lomo.png"/></div>
+                    <div class="slide"><img src="../picture/Love.png"/></div>
+                    <div class="slide"><img src="../picture/Noise.png"/></div>
+                    <div class="slide"><img src="../picture/Nostalgia.png"/></div>
+                    <div class="slide"><img src="../picture/OldBoot.png"/></div>
+                    <div class="slide"><img src="../picture/OrangePeel.png"/></div>
+                    <div class="slide"><img src="../picture/Pinhole.png"/></div>
+                    <div class="slide"><img src="../picture/Saturation.png"/></div>
+                    <div class="slide"><img src="../picture/Sepia.png"/></div>
+                    <div class="slide"><img src="../picture/SinCity.png"/></div>
+                    <div class="slide"><img src="../picture/Sunrise.png"/></div>
+                    <div class="slide"><img src="../picture/Vibrance.png"/></div>
+                    <div class="slide"><img src="../picture/Vintage.png"/></div>
+                </div>
+            </div>
+            </div>
+            <!-- Description -->
+            <div class="box txt">
+                <h2><span class="change"></span></h2>
+                <p>Sehen Sie eine Vorschau der verschiedenen auf der Website vorgeschlagenen Filter. Klicken Sie auf die Schaltfläche, um weitere Informationen über diese Filter und die Anpassung Ihrer Bilder zu erhalten!</p>
+                <a href="http://camanjs.com/guides/#BuiltIn" target="_blank" class="btn lm">Erfahren Sie mehr</a>
+            </div>
+
+        </div>
+  
+        <!-- Portfolio -->
+        <section class="portfolio">
+            <div class="img">
+                <div>
+                    <img src="../picture/img1.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img1.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img2.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img2.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img3.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img3.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img4.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img4.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img5.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img5.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img6.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img6.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img7.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img7.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img8.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img8.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img9.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img9.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+            <div class="img">
+                <div>
+                    <img src="../picture/img10.jpg" alt="">
+                </div>
+                <div>
+                    <a href="../picture/img10.jpg" download="your_image.jpg" class="btnw" alt="">Speichern</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages -->
+
+        <div class="language">
+            <a href="../french/french.html" class="btn lgn">Français</a>
+            <a href="../index.html" class="btn lgn">English</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+          <p>Thomas SCHLESSER &copy; Im Kader eines Projekts des NSI des CNED, 2020</p>
+        </footer>
+  
+    </div>
+
+</body>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js" integrity="sha256-Ttj6Ke2Nzuxi5upPlHetkZxBtdTq0LV1Z6BEUUsKPfs=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="main.js"></script>
